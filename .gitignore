@@ -1,0 +1,53 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+*.sublime-*
+*.swp
+*~
+
+# VS Code (keep settings, ignore data)
+.vscode/*
+!.vscode/settings.json
+
+# Build output
+bin/
+build/
+out/
+target/
+
+# Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+# Gradle
+.gradle/
+gradle/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

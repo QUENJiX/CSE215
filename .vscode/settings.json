@@ -1,0 +1,29 @@
+{
+    // === File Management ===
+    "files.exclude": {
+        "**/*.class": true
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+
+    // === Editor Settings ===
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+
+    // === Java Specific ===
+    "java.saveActions.organizeImports": true,
+    "java.codeGeneration.useBlocks": true,
+    "java.codeGeneration.generateComments": true,
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "com",
+        "org"
+    ]
+}
