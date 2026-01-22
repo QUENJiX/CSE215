@@ -4,7 +4,7 @@ An organized course folder for learning Java and Object-Oriented Programming.
 
 ---
 
-## 📚 Course Structure
+## Course Structure
 
 ```
 CSE215/
@@ -13,6 +13,7 @@ CSE215/
 ├── Labs/              # Hands-on lab exercises
 ├── Projects/          # Course projects
 ├── Practice/          # Practice programs organized by topic
+│   ├── Main.java      # Example entrypoint for running practice code
 │   ├── 01_Basics/     # Data types, control flow
 │   ├── 02_OOP/        # Classes, inheritance, polymorphism
 │   ├── 03_Interfaces/ # Interfaces and abstraction
@@ -20,12 +21,13 @@ CSE215/
 │   ├── 05_Collections/# ArrayList, HashMap, generics
 │   ├── 06_FileIO/     # File reading and writing
 │   └── 07_Applications/# Complete mini-programs
+|   
 └── Resources/         # Reference materials and study guides
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Ensure you have **JDK 17+** installed
 2. Verify installation:
@@ -37,7 +39,7 @@ CSE215/
 
 ---
 
-## 📝 Compilation & Execution
+## Compilation & Execution
 
 ```bash
 # Compile a Java file
@@ -49,7 +51,7 @@ java FileName
 
 ---
 
-## 📖 Quick Course Index
+## Quick Course Index
 
 ### Core Materials
 | Resource | Description |
@@ -78,7 +80,7 @@ java FileName
 
 ---
 
-## 📅 Course Topics
+## Course Topics
 
 - [x] Java Basics (types, operators, control flow)
 - [x] Classes and Objects
@@ -93,7 +95,7 @@ java FileName
 
 ---
 
-## 🎯 Learning Path
+## Learning Path
 
 ```
 Week 1-2    Week 3-4      Week 5-6        Week 7-8
@@ -117,7 +119,7 @@ Week 1-2    Week 3-4      Week 5-6        Week 7-8
 
 ---
 
-## 💡 Tips for Success
+## Tips for Success
 
 1. **Practice daily** - Code every day, even for 30 minutes
 2. **Type, don't copy** - Typing code helps you learn
