@@ -5,7 +5,6 @@
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-
     // === Editor Settings ===
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
@@ -15,7 +14,6 @@
     "editor.guides.bracketPairs": true,
     "editor.wordWrap": "on",
     "editor.minimap.enabled": false,
-
     // === Java Specific ===
     "java.saveActions.organizeImports": true,
     "java.codeGeneration.useBlocks": true,
@@ -25,5 +23,15 @@
         "javax",
         "com",
         "org"
+    ],
+    // Automatically detects source roots in your workspace
+    "java.import.project.importOnFirstTimeStartup": "automatic",
+    "java.project.importHint": "enabled",
+    // Forces the "Run" button to use the project root
+    "java.debug.settings.console": "integratedTerminal",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC",
+    // This helps VS Code ignore the "Assignments/" prefix in the terminal
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
     ]
 }

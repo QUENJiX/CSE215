@@ -2,16 +2,18 @@
  * ControlFlowDemo.java - Demonstrates control structures in Java
  * CSE215 - Programming Language II
  */
+package p01_Basics;
+
 import java.util.Scanner;
 
 public class ControlFlowDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         // === If-Else Statements ===
         System.out.println("=== If-Else Demo ===");
         int score = 85;
-        
+
         if (score >= 90) {
             System.out.println("Grade: A");
         } else if (score >= 80) {
@@ -23,15 +25,15 @@ public class ControlFlowDemo {
         } else {
             System.out.println("Grade: F");
         }
-        
+
         // Ternary operator (shorthand if-else)
         String result = (score >= 60) ? "Pass" : "Fail";
         System.out.println("Result: " + result);
-        
+
         // === Switch Statement ===
         System.out.println("\n=== Switch Demo ===");
         int dayNumber = 3;
-        
+
         // Traditional switch
         String dayName;
         switch (dayNumber) {
@@ -58,7 +60,7 @@ public class ControlFlowDemo {
                 dayName = "Invalid day";
         }
         System.out.println("Day " + dayNumber + " is " + dayName);
-        
+
         // Enhanced switch (Java 14+)
         String day = switch (dayNumber) {
             case 1 -> "Monday";
@@ -70,15 +72,15 @@ public class ControlFlowDemo {
             default -> "Invalid";
         };
         System.out.println("Enhanced switch result: " + day);
-        
+
         // === Loops ===
-        
+
         // For loop
         System.out.println("\n=== For Loop ===");
         for (int i = 1; i <= 5; i++) {
             System.out.println("Iteration " + i);
         }
-        
+
         // While loop
         System.out.println("\n=== While Loop ===");
         int count = 1;
@@ -86,7 +88,7 @@ public class ControlFlowDemo {
             System.out.println("Count: " + count);
             count++;
         }
-        
+
         // Do-While loop (executes at least once)
         System.out.println("\n=== Do-While Loop ===");
         int num = 1;
@@ -94,10 +96,10 @@ public class ControlFlowDemo {
             System.out.println("Number: " + num);
             num++;
         } while (num <= 3);
-        
+
         // === Loop Control ===
         System.out.println("\n=== Break and Continue ===");
-        
+
         // Break - exits the loop
         System.out.println("Break example:");
         for (int i = 1; i <= 10; i++) {
@@ -107,16 +109,16 @@ public class ControlFlowDemo {
             }
             System.out.println("i = " + i);
         }
-        
+
         // Continue - skips current iteration
         System.out.println("\nContinue example (skip even numbers):");
         for (int i = 1; i <= 6; i++) {
             if (i % 2 == 0) {
-                continue;  // Skip even numbers
+                continue; // Skip even numbers
             }
             System.out.println("Odd: " + i);
         }
-        
+
         // === Nested Loops ===
         System.out.println("\n=== Nested Loops (Multiplication Table) ===");
         for (int i = 1; i <= 3; i++) {
@@ -125,7 +127,7 @@ public class ControlFlowDemo {
             }
             System.out.println();
         }
-        
+
         scanner.close();
     }
 }

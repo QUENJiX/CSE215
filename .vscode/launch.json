@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "gradeCalculator",
+            "request": "launch",
+            "mainClass": "gradeCalculator",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "MyClass",
+            "request": "launch",
+            "mainClass": "MyClass",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "Run Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "projectName": "CSE215",
+            "console": "integratedTerminal"
+        }
+    ]
+}

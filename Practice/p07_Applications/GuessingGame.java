@@ -1,3 +1,5 @@
+package p07_Applications;
+
 import java.util.Scanner;
 import java.util.Random;
 
