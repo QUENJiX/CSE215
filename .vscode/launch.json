@@ -3,6 +3,76 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Task1",
+            "request": "launch",
+            "mainClass": "classwork.Task1",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "ValueCounter",
+            "request": "launch",
+            "mainClass": "task.ValueCounter",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "CountNumbers",
+            "request": "launch",
+            "mainClass": "task.CountNumbers",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "LotteryGame",
+            "request": "launch",
+            "mainClass": "Assignments.LotteryGame",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "Task3",
+            "request": "launch",
+            "mainClass": "Task3",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "Task4",
+            "request": "launch",
+            "mainClass": "Task4",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "Task2",
+            "request": "launch",
+            "mainClass": "Task2",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "BMI_Calculator",
+            "request": "launch",
+            "mainClass": "Assignments.BMI_Calculator",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "GradeCalculator",
+            "request": "launch",
+            "mainClass": "GradeCalculator",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
             "name": "gradeCalculator",
             "request": "launch",
             "mainClass": "gradeCalculator",
