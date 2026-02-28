@@ -3,6 +3,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "InheritanceDemo",
+            "request": "launch",
+            "mainClass": "p02_OOP.InheritanceDemo",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "ClassExample",
+            "request": "launch",
+            "mainClass": "p02_OOP.ClassExample",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "main",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
+            "name": "ControlFlowDemo",
+            "request": "launch",
+            "mainClass": "p01_Basics.ControlFlowDemo",
+            "projectName": "CSE215_e5cd109b"
+        },
+        {
+            "type": "java",
             "name": "Task1",
             "request": "launch",
             "mainClass": "classwork.Task1",

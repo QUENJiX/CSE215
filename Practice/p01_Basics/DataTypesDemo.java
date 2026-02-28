@@ -46,6 +46,7 @@ public class DataTypesDemo {
         // String methods
         System.out.println("Length: " + message.length());
         System.out.println("Uppercase: " + message.toUpperCase());
+        System.out.println("Lowercase: " + message.toLowerCase());
         System.out.println("Substring: " + message.substring(0, 5));
         System.out.println("Contains 'World': " + message.contains("World"));
 

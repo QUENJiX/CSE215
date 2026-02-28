@@ -96,7 +96,7 @@ class Student {
     // === Setters (Mutator Methods) with Validation ===
 
     public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) {
+        if (name != null && !name.trim().isEmpty()) { // Validation to prevent empty names
             this.name = name;
         }
     }
