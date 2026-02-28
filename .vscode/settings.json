@@ -15,7 +15,9 @@
     "editor.wordWrap": "on",
     "editor.minimap.enabled": false,
     // === Java Specific ===
-    "java.saveActions.organizeImports": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
     "java.codeGeneration.useBlocks": true,
     "java.codeGeneration.generateComments": true,
     "java.completion.importOrder": [
@@ -33,5 +35,8 @@
     // This helps VS Code ignore the "Assignments/" prefix in the terminal
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "java.errors.incompleteClasspath.severity": "ignore",
+    // Compiler warnings are suppressed via .settings/org.eclipse.jdt.core.prefs
+    "java.compile.nullAnalysis.mode": "disabled"
 }
