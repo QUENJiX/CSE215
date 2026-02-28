@@ -1,6 +1,24 @@
 /**
- * AbstractClassDemo.java - Demonstrates abstract classes vs interfaces
+ * AbstractClassDemo.java — Abstract Classes: Partial Implementation
+ * =====================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: An abstract class is like a TEMPLATE with some blanks to fill in.
+ *    It provides common code (concrete methods) but leaves some methods
+ *    for subclasses to implement (abstract methods).
+ *
+ *    Abstract Class vs Interface:
+ *    ┌──────────────────────┬────────────────────────┐
+ *    │ Abstract Class         │ Interface                │
+ *    ├──────────────────────┼────────────────────────┤
+ *    │ Can have state (fields)│ No state (only constants)│
+ *    │ Can have constructors  │ No constructors           │
+ *    │ Single inheritance     │ Multiple implementation   │
+ *    │ IS-A relationship      │ CAN-DO capability         │
+ *    └──────────────────────┴────────────────────────┘
+ *
+ * 🔗 SEE ALSO: p03_Interfaces/InterfaceExample.java
+ * 🔗 SEE ALSO: p03_Interfaces/FunctionalInterfaceDemo.java
  */
 package p03_Interfaces;
 

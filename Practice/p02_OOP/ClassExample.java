@@ -1,6 +1,25 @@
 /**
- * ClassExample.java - Demonstrates class structure, constructors, and encapsulation
+ * ClassExample.java — Classes, Constructors, Encapsulation, and Static Members
+ * ===============================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: A class is a BLUEPRINT, an object is a HOUSE built from that blueprint.
+ *    Multiple houses (objects) can be built from the same blueprint (class),
+ *    each with its own state (field values) but shared behavior (methods).
+ *
+ * Topics covered:
+ *   1. Instance variables (fields)
+ *   2. Constructors (default, parameterized, copy)
+ *   3. Getters/Setters with validation (encapsulation)
+ *   4. Static members (shared across all instances)
+ *   5. toString() override
+ *
+ * 📌 RULE: Encapsulation = private fields + public getters/setters.
+ *    This protects data integrity (validation in setters) and hides implementation.
+ *
+ * 🔗 SEE ALSO: p02_OOP/InheritanceDemo.java (extending classes)
+ * 🔗 SEE ALSO: p02_OOP/StaticAndFinalDemo.java (deep-dive on static/final)
+ * 🔗 SEE ALSO: p02_OOP/ObjectClassMethodsDemo.java (equals, hashCode, clone)
  */
 package p02_OOP;
 

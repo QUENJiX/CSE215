@@ -1,6 +1,18 @@
 /**
- * ControlFlowDemo.java - Demonstrates control structures in Java
+ * ControlFlowDemo.java — If/Else, Switch, Loops, Break/Continue
+ * ================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: Control flow determines WHICH code runs and HOW MANY times.
+ *    - Conditionals (if/switch): choose a path
+ *    - Loops (for/while/do-while): repeat a path
+ *    - Break/Continue: escape or skip within loops
+ *
+ * 📌 RULE: Enhanced switch (Java 14+) uses -> arrows and returns values.
+ *    No break needed, no fall-through bugs.
+ *
+ * 🔗 SEE ALSO: p01_Basics/DataTypesDemo.java (operators used in conditions)
+ * 🔗 SEE ALSO: p01_Basics/MethodsAndRecursionDemo.java (methods + recursion)
  */
 package p01_Basics;
 

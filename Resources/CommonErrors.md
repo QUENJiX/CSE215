@@ -1,6 +1,7 @@
-# Common Java Errors & Debugging Guide
+# ⭐ CSE215 — Common Java Errors & Debugging Guide
 
-A quick reference for common Java errors and how to fix them.
+A comprehensive reference for common Java errors and how to fix them.
+Covers compile-time, runtime, and advanced topic errors.
 
 ---
 
@@ -271,12 +272,190 @@ Explain your code out loud (to a rubber duck or colleague). Often you'll find th
 
 ## Quick Reference
 
-| Error | Likely Cause |
-|-------|--------------|
-| `cannot find symbol` | Typo, missing import, scope issue |
-| `NullPointerException` | Calling method on null |
-| `ArrayIndexOutOfBounds` | Invalid array index |
-| `ClassCastException` | Wrong type cast |
-| `NumberFormatException` | Invalid string to number |
-| `StackOverflowError` | Infinite recursion |
-| `OutOfMemoryError` | Memory leak or huge data |
+| Error                             | Likely Cause                                 |
+| --------------------------------- | -------------------------------------------- |
+| `cannot find symbol`              | Typo, missing import, scope issue            |
+| `NullPointerException`            | Calling method on null                       |
+| `ArrayIndexOutOfBounds`           | Invalid array index                          |
+| `ClassCastException`              | Wrong type cast                              |
+| `NumberFormatException`           | Invalid string to number                     |
+| `StackOverflowError`              | Infinite recursion                           |
+| `OutOfMemoryError`                | Memory leak or huge data                     |
+| `ConcurrentModificationException` | Modifying collection during iteration        |
+| `UnsupportedOperationException`   | Modifying immutable collection (`List.of()`) |
+| `IllegalStateException`           | Stream already consumed / builder misuse     |
+
+---
+
+## Advanced Errors
+
+### 8. `UnsupportedOperationException`
+
+**Cause:** Trying to modify an unmodifiable collection.
+
+```java
+// ❌ Error
+List<String> list = List.of("a", "b", "c");
+list.add("d");  // UnsupportedOperationException!
+
+// Also happens with:
+List<String> fixed = Arrays.asList("a", "b");
+fixed.add("c");  // UnsupportedOperationException!
+
+// ✅ Fix – wrap in a mutable list
+List<String> mutable = new ArrayList<>(List.of("a", "b", "c"));
+mutable.add("d");  // OK
+```
+
+---
+
+### 9. `IllegalStateException: stream has already been operated upon`
+
+**Cause:** Reusing a consumed stream.
+
+```java
+// ❌ Error
+Stream<String> stream = list.stream();
+stream.forEach(System.out::println);
+stream.count();  // IllegalStateException!
+
+// ✅ Fix – create a new stream each time
+list.stream().forEach(System.out::println);
+long count = list.stream().count();
+```
+
+📌 Streams are single-use pipelines. Once a terminal operation runs, the stream is gone.
+
+---
+
+### 10. Race Condition (no exception, just wrong results)
+
+**Cause:** Multiple threads accessing shared data without synchronization.
+
+```java
+// ❌ Bug – counter may not reach 200000
+class Counter {
+    int count = 0;
+    void increment() { count++; }  // NOT atomic!
+}
+// Two threads each call increment() 100000 times → result < 200000
+
+// ✅ Fix Option 1 – synchronized
+synchronized void increment() { count++; }
+
+// ✅ Fix Option 2 – AtomicInteger
+AtomicInteger count = new AtomicInteger(0);
+void increment() { count.incrementAndGet(); }
+```
+
+🔗 See `Practice/p10_Concurrency/ThreadBasicsDemo.java`
+
+---
+
+### 11. Lambda / Effectively-Final Error
+
+**Cause:** Lambda captures a variable that is later reassigned.
+
+```java
+// ❌ Error: "local variables referenced from a lambda must be final or effectively final"
+int x = 10;
+x = 20;  // reassigned!
+Runnable r = () -> System.out.println(x);  // Compile error
+
+// ✅ Fix – don't reassign (or use an array/AtomicInteger wrapper)
+final int x = 20;
+Runnable r = () -> System.out.println(x);  // OK
+
+// ✅ Workaround for mutable state
+int[] holder = {10};
+Runnable r = () -> System.out.println(holder[0]);
+holder[0] = 20;  // Arrays are reference types – OK
+```
+
+---
+
+### 12. Forgetting `hashCode()` when overriding `equals()`
+
+**Cause:** Objects compare as equal but hash differently → broken HashMap/HashSet behavior.
+
+```java
+// ❌ Bug – Student found in list, but NOT in HashSet
+class Student {
+    String name;
+    @Override
+    public boolean equals(Object o) {
+        return name.equals(((Student) o).name);
+    }
+    // Missing hashCode()!
+}
+
+Set<Student> set = new HashSet<>();
+set.add(new Student("Alice"));
+set.contains(new Student("Alice"));  // false! Different hashCode
+
+// ✅ Fix – ALWAYS override both
+@Override
+public int hashCode() {
+    return Objects.hash(name);
+}
+```
+
+📌 Rule: if `a.equals(b)` then `a.hashCode() == b.hashCode()`. Always override both or neither.
+
+---
+
+### 13. `NotSerializableException`
+
+**Cause:** Trying to serialize a class that doesn't implement `Serializable`, or a non-serializable field in a serializable class.
+
+```java
+// ❌ Error
+class Person {  // Missing implements Serializable
+    String name;
+}
+ObjectOutputStream oos = new ObjectOutputStream(fos);
+oos.writeObject(new Person());  // NotSerializableException
+
+// ✅ Fix
+class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
+    String name;
+    transient Socket connection;  // non-serializable field → mark transient
+}
+```
+
+---
+
+### 14. Infinite Stream
+
+**Cause:** Using `Stream.generate()` or `Stream.iterate()` without `limit()`.
+
+```java
+// ❌ Hangs forever
+Stream.generate(Math::random).forEach(System.out::println);
+
+// ✅ Fix
+Stream.generate(Math::random).limit(10).forEach(System.out::println);
+```
+
+---
+
+## Debugging Levels
+
+```
+Level 1: Print Debugging
+    System.out.println("DEBUG: x = " + x);
+
+Level 2: Logging (better for real apps)
+    Logger.getLogger("MyApp").info("Processing item: " + item);
+
+Level 3: IDE Debugger
+    • Set breakpoints
+    • Step through code (F5/F6/F7)
+    • Inspect variables
+    • Evaluate expressions
+    • Conditional breakpoints
+
+Level 4: Rubber Duck Debugging
+    Explain your code out loud — you'll often find the bug while explaining.
+```

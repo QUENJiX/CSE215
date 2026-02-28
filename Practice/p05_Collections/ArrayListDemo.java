@@ -1,6 +1,24 @@
 /**
- * ArrayListDemo.java - Demonstrates ArrayList and List interface
+ * ArrayListDemo.java — ArrayList: Dynamic Arrays with the List Interface
+ * ========================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: ArrayList is like an array that can GROW automatically.
+ *    Internally it uses an array; when full, it creates a bigger one and copies.
+ *
+ *    Performance:
+ *      - get(index):  O(1) — instant, just like arrays
+ *      - add(end):    O(1) amortized — usually fast, occasional resize
+ *      - add(middle): O(n) — must shift elements right
+ *      - remove:      O(n) — must shift elements left
+ *      - contains:    O(n) — must scan linearly
+ *
+ * ⚠️ GOTCHA: ArrayList is NOT synchronized (not thread-safe).
+ *    For thread-safe, use Collections.synchronizedList() or CopyOnWriteArrayList.
+ *
+ * 🔗 SEE ALSO: p05_Collections/SetDemo.java (unique elements)
+ * 🔗 SEE ALSO: p05_Collections/QueueAndStackDemo.java (FIFO/LIFO)
+ * 🔗 SEE ALSO: p05_Collections/CollectionsUtilityDemo.java (utility methods)
  */
 package p05_Collections;
 

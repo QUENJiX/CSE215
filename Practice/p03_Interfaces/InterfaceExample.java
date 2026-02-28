@@ -1,6 +1,27 @@
 /**
- * InterfaceExample.java - Demonstrates interfaces and their implementation
+ * InterfaceExample.java — Interfaces: Contracts, Default Methods, Multiple Implementation
+ * =========================================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: An interface is a CONTRACT. It says "any class that implements
+ *    me MUST provide these methods." It defines WHAT a class can do,
+ *    not HOW it does it.
+ *
+ *    Real-world: A USB port is an interface — any device that implements USB
+ *    (mouse, keyboard, drive) can plug in. The computer doesn't care
+ *    about the device's internals, only that it follows the USB contract.
+ *
+ * 📌 KEY RULES:
+ *   - A class can implement MULTIPLE interfaces (unlike single inheritance)
+ *   - Interface methods are implicitly public and abstract
+ *   - Interface fields are implicitly public, static, and final (constants)
+ *   - Since Java 8: can have default methods (with implementation)
+ *   - Since Java 8: can have static methods
+ *   - Since Java 9: can have private methods
+ *
+ * 🔗 SEE ALSO: p03_Interfaces/AbstractClassDemo.java (abstract vs interface)
+ * 🔗 SEE ALSO: p03_Interfaces/FunctionalInterfaceDemo.java (single-method interfaces)
+ * 🔗 SEE ALSO: p03_Interfaces/ComparableComparatorDemo.java (Comparable/Comparator)
  */
 package p03_Interfaces;
 

@@ -1,16 +1,21 @@
-# Java Quick Reference
+# Java Quick Reference — CSE215
+
+> Complete quick reference covering basics through advanced topics.  
+> For in-depth examples, see the `Practice/` package (each topic has runnable demos).
 
 ## Data Types
-| Type    | Size   | Range                        |
-|---------|--------|------------------------------|
-| byte    | 1 byte | -128 to 127                  |
-| short   | 2 bytes| -32,768 to 32,767            |
-| int     | 4 bytes| -2^31 to 2^31 - 1            |
-| long    | 8 bytes| -2^63 to 2^63 - 1            |
-| float   | 4 bytes| ~7 decimal digits            |
-| double  | 8 bytes| ~15 decimal digits           |
-| char    | 2 bytes| Unicode characters           |
-| boolean | 1 bit  | true or false                |
+| Type    | Size    | Range                 | Default  |
+| ------- | ------- | --------------------- | -------- |
+| byte    | 1 byte  | -128 to 127           | 0        |
+| short   | 2 bytes | -32,768 to 32,767     | 0        |
+| int     | 4 bytes | -2^31 to 2^31 - 1     | 0        |
+| long    | 8 bytes | -2^63 to 2^63 - 1     | 0L       |
+| float   | 4 bytes | ~7 decimal digits     | 0.0f     |
+| double  | 8 bytes | ~15 decimal digits    | 0.0      |
+| char    | 2 bytes | 0 to 65,535 (Unicode) | '\u0000' |
+| boolean | JVM     | true or false         | false    |
+
+**⚠️ Pitfalls:** Integer overflow wraps silently. `0.1 + 0.2 ≠ 0.3` (floating-point). Use `BigDecimal` for money.
 
 ---
 
@@ -85,7 +90,7 @@ public abstract class Shape {
 
 ### Access Modifiers
 | Modifier  | Class | Package | Subclass | World |
-|-----------|-------|---------|----------|-------|
+| --------- | ----- | ------- | -------- | ----- |
 | public    | ✓     | ✓       | ✓        | ✓     |
 | protected | ✓     | ✓       | ✓        | ✗     |
 | default   | ✓     | ✓       | ✗        | ✗     |
@@ -289,20 +294,147 @@ List<? super Integer> ints;  // Integer or superclass
 ---
 
 ## Useful Shortcuts
-| Shortcut | Expansion |
-|----------|-----------|
-| `sout` | `System.out.println()` |
-| `psvm` | `public static void main(String[] args)` |
-| `fori` | `for (int i = 0; i < ; i++) { }` |
-| `iter` | Enhanced for loop |
+| Shortcut | Expansion                                |
+| -------- | ---------------------------------------- |
+| `sout`   | `System.out.println()`                   |
+| `psvm`   | `public static void main(String[] args)` |
+| `fori`   | `for (int i = 0; i < ; i++) { }`         |
+| `iter`   | Enhanced for loop                        |
+
+---
+
+## Lambda Expressions (Java 8+)
+```java
+// Syntax variations
+Runnable r = () -> System.out.println("hi");
+Consumer<String> c = s -> System.out.println(s);
+BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+Comparator<String> comp = (a, b) -> a.length() - b.length();
+
+// With collections
+list.forEach(System.out::println);
+list.removeIf(s -> s.isEmpty());
+list.sort(Comparator.comparing(String::length));
+```
+
+### Built-in Functional Interfaces
+| Interface           | Method       | Signature     |
+| ------------------- | ------------ | ------------- |
+| `Predicate<T>`      | `test(T)`    | `T → boolean` |
+| `Function<T,R>`     | `apply(T)`   | `T → R`       |
+| `Consumer<T>`       | `accept(T)`  | `T → void`    |
+| `Supplier<T>`       | `get()`      | `() → T`      |
+| `UnaryOperator<T>`  | `apply(T)`   | `T → T`       |
+| `BinaryOperator<T>` | `apply(T,T)` | `(T,T) → T`   |
+
+### Method References
+| Type             | Syntax                | Lambda Equivalent            |
+| ---------------- | --------------------- | ---------------------------- |
+| Static           | `Integer::parseInt`   | `s -> Integer.parseInt(s)`   |
+| Bound instance   | `System.out::println` | `s -> System.out.println(s)` |
+| Unbound instance | `String::toUpperCase` | `s -> s.toUpperCase()`       |
+| Constructor      | `ArrayList::new`      | `() -> new ArrayList<>()`    |
+
+---
+
+## Streams API (Java 8+)
+```java
+// Pipeline: source → intermediate ops → terminal op
+List<String> result = list.stream()
+    .filter(s -> s.length() > 3)       // keep matching
+    .map(String::toUpperCase)           // transform
+    .sorted()                           // sort
+    .distinct()                         // remove duplicates
+    .limit(10)                          // take first 10
+    .collect(Collectors.toList());      // gather results
+
+// Terminal operations
+long count = stream.count();
+Optional<T> first = stream.findFirst();
+boolean any = stream.anyMatch(predicate);
+T reduced = stream.reduce(identity, accumulator);
+
+// Collectors
+Collectors.toList()
+Collectors.toSet()
+Collectors.toMap(keyFn, valueFn)
+Collectors.groupingBy(classifier)
+Collectors.partitioningBy(predicate)
+Collectors.joining(", ")
+```
+
+---
+
+## Enums
+```java
+enum Season {
+    SPRING, SUMMER, FALL, WINTER;
+}
+
+// Enum with fields
+enum Planet {
+    EARTH(5.97e24, 6.37e6);
+    private final double mass, radius;
+    Planet(double m, double r) { mass = m; radius = r; }
+}
+
+// Useful methods
+Season.values()            // All constants
+Season.valueOf("SPRING")   // String → enum
+season.name()              // Enum → String
+season.ordinal()           // Position (0-based)
+```
+
+---
+
+## Concurrency Basics
+```java
+// Create thread
+Thread t = new Thread(() -> System.out.println("Running"));
+t.start();   // ✅ creates new thread
+// t.run();  // ❌ runs in current thread!
+t.join();    // Wait for thread to finish
+
+// ExecutorService (preferred)
+ExecutorService pool = Executors.newFixedThreadPool(4);
+pool.submit(() -> { /* task */ });
+Future<Integer> future = pool.submit(() -> 42);
+int result = future.get(); // blocks until ready
+pool.shutdown();
+
+// Synchronized
+synchronized (lockObject) { /* thread-safe block */ }
+
+// Atomic (for simple counters)
+AtomicInteger counter = new AtomicInteger(0);
+counter.incrementAndGet();
+```
+
+---
 
 ## Common Imports
 ```java
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.io.*;
-import java.nio.file.*;
+import java.util.*;                    // Collections, Arrays, Scanner, etc.
+import java.util.stream.*;            // Stream, Collectors
+import java.util.function.*;          // Predicate, Function, Consumer, etc.
+import java.io.*;                     // File I/O
+import java.nio.file.*;               // NIO (Path, Files)
+import java.util.concurrent.*;        // ExecutorService, Future
+import java.util.concurrent.atomic.*; // AtomicInteger
 ```
+
+---
+
+## Common Gotchas
+| Trap                         | Explanation                                             |
+| ---------------------------- | ------------------------------------------------------- |
+| `==` on objects              | Compares references, not values. Use `.equals()`        |
+| `==` on `Integer > 127`      | Integer cache only covers -128 to 127                   |
+| String `==` vs `.equals()`   | Pool may make `==` work sometimes, but never rely on it |
+| `0.1 + 0.2`                  | Not exactly `0.3` (floating-point)                      |
+| Array `toString()`           | Prints hash, not contents. Use `Arrays.toString()`      |
+| `List.of()` is immutable     | Can't add/remove. Use `new ArrayList<>(List.of(...))`   |
+| Forgetting `break` in switch | Fall-through. Use enhanced switch (`->`) instead        |
+| `thread.run()`               | Doesn't create a new thread! Use `thread.start()`       |
+
+> 📚 **See also:** `Practice/README.md` for the complete learning path and runnable demos.

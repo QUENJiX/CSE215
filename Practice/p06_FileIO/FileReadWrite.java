@@ -1,6 +1,19 @@
 /**
- * FileReadWrite.java - Demonstrates file I/O operations in Java
+ * FileReadWrite.java — File I/O: Reading, Writing, and NIO Operations
+ * =====================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: File I/O connects your program to the outside world.
+ *    Java provides two approaches:
+ *      - Old I/O (java.io): Stream-based, byte/character oriented
+ *      - New I/O (java.nio): Path-based, modern, more convenient
+ *
+ * 📌 RULE: ALWAYS close resources. Use try-with-resources to auto-close.
+ *    try (BufferedReader br = new BufferedReader(new FileReader(file))) { ... }
+ *    The br is automatically closed when the block exits.
+ *
+ * 🔗 SEE ALSO: p06_FileIO/SerializationDemo.java (object persistence)
+ * 🔗 SEE ALSO: p04_Exceptions/TryCatchDemo.java (try-with-resources)
  */
 package p06_FileIO;
 

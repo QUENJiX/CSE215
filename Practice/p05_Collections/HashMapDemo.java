@@ -1,6 +1,27 @@
 /**
- * HashMapDemo.java - Demonstrates HashMap and Map interface
+ * HashMapDemo.java — HashMap, LinkedHashMap, TreeMap: Key-Value Pairs
+ * =====================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: HashMap is like a dictionary — look up a VALUE by its KEY.
+ *    Internally uses HASHING: key.hashCode() → index in an array of buckets.
+ *
+ *    Performance:
+ *      - put/get/remove:   O(1) average (O(n) worst case with collisions)
+ *      - Iteration order:  NOT guaranteed (use LinkedHashMap for insertion order)
+ *
+ *    Choosing the right Map:
+ *    ┌────────────────┬──────────────────────────────────┐
+ *    │ HashMap        │ Fastest, no order guarantee       │
+ *    │ LinkedHashMap   │ Maintains insertion order          │
+ *    │ TreeMap         │ Sorted by key (natural/comparator) │
+ *    └────────────────┴──────────────────────────────────┘
+ *
+ * ⚠️ GOTCHA: Keys must have proper equals() AND hashCode() overridden!
+ *    If two objects are .equals(), they MUST have the same hashCode().
+ *
+ * 🔗 SEE ALSO: p02_OOP/ObjectClassMethodsDemo.java (equals/hashCode)
+ * 🔗 SEE ALSO: p05_Collections/SetDemo.java (Set uses same hashing internally)
  */
 package p05_Collections;
 

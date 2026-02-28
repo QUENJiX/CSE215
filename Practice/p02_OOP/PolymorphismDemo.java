@@ -1,6 +1,24 @@
 /**
- * PolymorphismDemo.java - Demonstrates compile-time and runtime polymorphism
+ * PolymorphismDemo.java — Compile-Time & Runtime Polymorphism
+ * ==============================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: Polymorphism = "many forms". One interface, multiple behaviors.
+ *
+ *    Two types:
+ *    ┌──────────────────────────────────────────────────────┐
+ *    │ COMPILE-TIME (Static)    │ RUNTIME (Dynamic)          │
+ *    │ Method OVERLOADING       │ Method OVERRIDING           │
+ *    │ Same name, diff params   │ Same signature, diff class  │
+ *    │ Resolved at compile time │ Resolved at runtime (JVM)   │
+ *    └──────────────────────────────────────────────────────┘
+ *
+ * 📌 RULE (Dynamic Dispatch): When you call a method on a parent reference
+ *    that points to a child object, the CHILD's overridden method runs.
+ *    Animal a = new Dog();  a.makeSound();  → calls Dog's makeSound()
+ *
+ * 🔗 SEE ALSO: p02_OOP/InheritanceDemo.java (inheritance basics)
+ * 🔗 SEE ALSO: p03_Interfaces/InterfaceExample.java (interface polymorphism)
  */
 package p02_OOP;
 

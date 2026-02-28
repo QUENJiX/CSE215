@@ -1,6 +1,29 @@
 /**
- * InheritanceDemo.java - Demonstrates inheritance and method overriding
+ * InheritanceDemo.java — Inheritance, Method Overriding, super, instanceof
+ * ==========================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: Inheritance is an "IS-A" relationship.
+ *    A Dog IS-A Animal. A Cat IS-A Animal.
+ *    The child class INHERITS all non-private members of the parent.
+ *
+ *    Inheritance chain: Child → Parent → Grandparent → ... → Object
+ *    Every class in Java ultimately extends java.lang.Object.
+ *
+ * 📌 KEY RULES:
+ *   - Java supports single inheritance only (one parent class)
+ *   - Use 'extends' keyword
+ *   - super() must be the FIRST statement in child constructor
+ *   - @Override annotation ensures you're actually overriding (catches typos)
+ *   - private members are inherited but NOT accessible
+ *   - protected members are accessible in subclasses
+ *
+ * ⚠️ GOTCHA: Prefer composition over inheritance when the relationship
+ *    is "HAS-A" rather than "IS-A". A Car HAS-A Engine (composition),
+ *    a Car IS NOT an Engine (don't use inheritance).
+ *
+ * 🔗 SEE ALSO: p02_OOP/PolymorphismDemo.java (runtime method dispatch)
+ * 🔗 SEE ALSO: p03_Interfaces/AbstractClassDemo.java (abstract classes)
  */
 package p02_OOP;
 

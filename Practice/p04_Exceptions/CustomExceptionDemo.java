@@ -1,6 +1,20 @@
 /**
- * CustomExceptionDemo.java - Creating and using custom exceptions
+ * CustomExceptionDemo.java — Creating and Using Custom Exceptions
+ * ==================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: Custom exceptions make your API self-documenting.
+ *    Instead of "Exception: error", you get "InsufficientFundsException: $50 short."
+ *    The exception TYPE tells you WHAT went wrong;
+ *    the message tells you the DETAILS.
+ *
+ * 📌 RULES for custom exceptions:
+ *   - Extend Exception for checked (caller MUST handle)
+ *   - Extend RuntimeException for unchecked (caller may handle)
+ *   - Include a constructor that takes a String message
+ *   - Name should end with "Exception"
+ *
+ * 🔗 SEE ALSO: p04_Exceptions/TryCatchDemo.java (handling exceptions)
  */
 package p04_Exceptions;
 

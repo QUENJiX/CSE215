@@ -1,6 +1,7 @@
-# OOP Design Patterns in Java
+# ⭐ CSE215 — OOP Design Patterns in Java
 
 A quick reference for commonly used design patterns with Java examples.
+Each pattern has a runnable demo in `Practice/p11_DesignPatterns/`.
 
 ---
 
@@ -291,13 +292,13 @@ cart.checkout(50.00);
 
 ## Pattern Selection Guide
 
-| Pattern | Use When |
-|---------|----------|
-| **Singleton** | Need exactly one instance globally |
-| **Factory** | Object creation logic should be hidden |
-| **Builder** | Object has many parameters (4+) |
-| **Observer** | Objects need to react to changes |
-| **Strategy** | Need interchangeable algorithms |
+| Pattern       | Use When                               |
+| ------------- | -------------------------------------- |
+| **Singleton** | Need exactly one instance globally     |
+| **Factory**   | Object creation logic should be hidden |
+| **Builder**   | Object has many parameters (4+)        |
+| **Observer**  | Objects need to react to changes       |
+| **Strategy**  | Need interchangeable algorithms        |
 
 ---
 

@@ -1,6 +1,23 @@
 /**
- * TryCatchDemo.java - Demonstrates exception handling in Java
+ * TryCatchDemo.java — Exception Handling: try/catch/finally, Multi-catch, try-with-resources
+ * ============================================================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: Exceptions are Java's way of saying "something went wrong."
+ *    Instead of returning error codes, Java THROWS an exception object
+ *    that propagates up the call stack until someone CATCHes it.
+ *
+ *    Exception Hierarchy:
+ *    Throwable
+ *    ├── Error (serious, don't catch: OutOfMemoryError, StackOverflowError)
+ *    └── Exception
+ *        ├── RuntimeException (unchecked: NullPointer, ArrayIndexOutOfBounds, ClassCast)
+ *        └── Checked exceptions (must handle: IOException, SQLException, FileNotFound)
+ *
+ * 📌 RULE: Checked exceptions MUST be caught or declared (throws).
+ *    Unchecked exceptions (RuntimeException) are optional to catch.
+ *
+ * 🔗 SEE ALSO: p04_Exceptions/CustomExceptionDemo.java (creating your own exceptions)
  */
 package p04_Exceptions;
 

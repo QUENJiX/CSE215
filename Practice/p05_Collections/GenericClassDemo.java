@@ -1,6 +1,23 @@
 /**
- * GenericClassDemo.java - Demonstrates generics in Java
+ * GenericClassDemo.java — Generics: Type-Safe, Reusable Code
+ * ==============================================================
  * CSE215 - Programming Language II
+ *
+ * 💡 INTUITION: Generics let you write ONE class/method that works with ANY type,
+ *    while still catching type errors at COMPILE time (not runtime).
+ *
+ *    Without generics: List list = new ArrayList(); list.add("hello"); int x = (int) list.get(0); // ClassCastException at RUNTIME!
+ *    With generics:    List<String> list = new ArrayList<>(); // Compile error if you add non-String!
+ *
+ * 📌 COMMON TYPE PARAMETERS:
+ *    T = Type, E = Element, K = Key, V = Value, N = Number
+ *
+ * ⚠️ GOTCHA (Type Erasure): Generics are a COMPILE-TIME feature.
+ *    At runtime, ArrayList<String> and ArrayList<Integer> are the same class!
+ *    You cannot do: new T(), instanceof T, or T.class at runtime.
+ *
+ * 🔗 SEE ALSO: p05_Collections/ArrayListDemo.java (generics in practice)
+ * 🔗 SEE ALSO: p03_Interfaces/ComparableComparatorDemo.java (bounded types)
  */
 package p05_Collections;
 
