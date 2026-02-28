@@ -19,12 +19,12 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         System.out.println("╔══════════════════════════════════════════════╗");
-        System.out.println("║   CSE215 — JAVA PRACTICE PACKAGE             ║");
+        System.out.println("║   CSE215 - JAVA PRACTICE PACKAGE             ║");
         System.out.println("╚══════════════════════════════════════════════╝");
 
         System.out.print("\nEnter your name: ");
         String name = input.nextLine();
-        System.out.println("\nWelcome, " + name + "! 👋\n");
+        System.out.println("\nWelcome, " + name + "!\n");
 
         System.out.println("Available Practice Packages:");
         System.out.println("─────────────────────────────────────────────");
@@ -41,7 +41,7 @@ public class Main {
         System.out.println("  p11_DesignPatterns/ → Singleton, Factory, Observer, Strategy, Builder");
         System.out.println("─────────────────────────────────────────────");
         System.out.println("\nRun each file individually. See README.md for details.");
-        System.out.println("Happy coding, " + name + "! 🚀");
+        System.out.println("Happy coding, " + name + "!");
 
         input.close();
     }
